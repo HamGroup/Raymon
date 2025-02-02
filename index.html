@@ -1,18 +1,36 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-<title>Raymomn92's HamGroup site</title>>
+<title>HamVote</title>
+<script>
+function submitVote() {
+var haamiVotes = parseInt(document.getElementById("haamiVotes").textContent);
+var mahiVotes = parseInt(document.getElementById("mahiVotes").textContent);
+var vote = document.querySelector('input[name="vote"]:checked').value;
+
+if (vote === "haami") {
+haamiVotes++;
+document.getElementById("haamiVotes").textContent = haamiVotes;
+} else if (vote === "Haami") {
+mahiVotes++;
+document.getElementById("Haami2Votes").textContent = mahiVotes;
+}
+
+document.getElementById("voteForm").reset();
+}
+</script>
 </head>
 <body>
-  
-      
-    <a  href="page2.html" target_blank  title="haami open this i takes you to page 2">
-           ....................press me to go to page 2
-   </a>
-    <a><img src="Screenshot 2025-02-01 001505.png" alt="mahi"></a>
-
+<h1>Vote for Your Favorite</h1>
+<form id="voteForm">
+<input type="radio" id="haami" name="vote" value="haami">
+<label for="haami">Haami</label><br>
+<input type="radio" id="Haami2" name="vote" value="mahi">
+<label for="mahi">Mahi</label><br>
+<button type="button" onclick="submitVote()">Submit Vote</button>
+</form>
+<h2>Results</h2>
+<p>Haami Votes: <span id="haamiVotes">0</span></p>
+<p>Mahi Votes: <span id="mahiVotes">0</span></p>
 </body>
-
 </html>
